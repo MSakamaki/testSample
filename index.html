@@ -175,9 +175,9 @@ graph LR
   eio-->nme(ID入力エラー)
   nm-.->nme
   eio(Err出力)-->bteA(通信エラー)
-  nm-.->bteA
+  bt-.->bteA
   eio-->bteB(業務エラー)
-  nm-.->bteB
+  bt-.->bteB
   io(入出力)-->non(無し)
 </div>
 
@@ -220,14 +220,15 @@ export default class Login{
   * 画面が描画されたかを確認する。
   * @example
   * // promise chain.
-  *   .then(()=> kacTest.po.iaasOrder.advancedfirewalloption.verification())
+  *   .then(()=> kacTest.po.common.login.verification())
   *
   * @return {Promise}
   */
   verification() {
     return kacTest.helper.po.createVerification([
-      this.lnkJsocUnUse,
-      this.lnkPageBack,
+      this.inputUserId,
+      this.inputPassword,
+      this.btnLogin,
     ]);
   }
 
